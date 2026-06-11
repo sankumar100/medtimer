@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#e0a96d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Meditation Timer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body data-view="library">
+
+  <!-- ── VIEW 1: PRESET LIBRARY ── -->
+  <section id="view-library" class="view">
+    <header>
+      <h1>Meditation Timer</h1>
+      <button id="btn-new-timer" class="btn-primary">+ New Timer</button>
+    </header>
+    <div id="preset-list">
+      <p class="empty-hint" id="library-empty">No saved timers yet. Tap <strong>+ New Timer</strong> to create one.</p>
+    </div>
+  </section>
+
+  <!-- ── VIEW 2: EDITOR ── -->
+  <section id="view-editor" class="view">
+    <header>
+      <button id="btn-back-library" class="btn-icon" aria-label="Back">&#8592;</button>
+      <input id="preset-name" type="text" placeholder="Timer name (e.g. Morning Sit)" autocomplete="off" />
+    </header>
+    <ul id="phase-list"></ul>
+    <button id="btn-add-phase" class="btn-secondary">+ Add Phase</button>
+    <p id="total-duration-display" class="total-duration"></p>
+    <div class="editor-actions">
+      <button id="btn-save" class="btn-secondary">Save</button>
+      <button id="btn-start" class="btn-primary">&#9654; Start</button>
+    </div>
+  </section>
+
+  <!-- ── VIEW 3: SESSION ── -->
+  <section id="view-session" class="view">
+    <header class="session-header">
+      <span id="session-preset-name" class="session-preset-label"></span>
+      <button id="btn-reset" class="btn-icon" aria-label="Reset">&#8635;</button>
+    </header>
+
+    <div class="session-main">
+      <p id="current-phase-name" class="phase-name"></p>
+      <div id="countdown" class="countdown">00:00</div>
+      <div class="progress-bar-wrap" title="Phase progress">
+        <div id="phase-progress-bar" class="progress-bar"></div>
+      </div>
+      <p id="phase-counter" class="phase-counter">Phase 1 of 1</p>
+      <div class="progress-bar-wrap" title="Overall progress">
+        <div id="overall-progress-bar" class="progress-bar overall"></div>
+      </div>
+    </div>
+
+    <div class="transport">
+      <button id="btn-skip" class="btn-transport" aria-label="Skip phase">&#9197;</button>
+      <button id="btn-play-pause" class="btn-transport btn-play" aria-label="Play">&#9654;</button>
+      <button id="btn-back-editor" class="btn-transport" aria-label="Back to editor">&#9776;</button>
+    </div>
+
+    <ul id="phase-queue" class="phase-queue"></ul>
+
+    <div id="done-banner" class="done-banner hidden">
+      <span>&#128276; Session Complete</span>
+      <button id="btn-done-reset" class="btn-primary">Done</button>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

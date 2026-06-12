@@ -1,4 +1,4 @@
-const CACHE = 'medtimer-v1';
+const CACHE = 'medtimer-v2';
 const ASSETS = [
   './',
   './index.html',
